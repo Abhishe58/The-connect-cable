@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap">
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title>Connect Cables</title>
+    <style>
+        * 
+        {
+            margin: 0;
+            padding: 0;
+            font-family: Barlow;
+            box-sizing: border-box;
+        }
+        body 
+        {
+            position: relative;
+        }
+        .worlda
+        {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background: url('picture/earth.png'),linear-gradient(to bottom, #000310 50%);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .containera
+        {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+        }
+        header 
+        {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            color: white;
+        }
+        .navBut
+        {
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+            white-space: nowrap;
+            transition: 1s;
+            font-weight: 500;
+            font-size: 16px;
+            color: white;
+            position: relative;
+        }
+        .navBut::after
+        {
+            content: ' ';
+            position: absolute;
+            height: 2px;
+            width: 0;
+            background-color: white;
+            bottom: 0;
+            left: 2px;
+            transition: 1s;
+        }
+        .navBut:hover::after
+        {
+            width: 100%;
+        }
+        .boxa
+        {
+            position: relative;
+            height: calc(100vh - 60px);
+            padding: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .miniBox
+        {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: start;
+            justify-content: center;
+            color: white;
+        }
+        .mainH1
+        {
+            font-size: 60px;
+        }
+        .miniBoxb 
+        {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .mainImg
+        {
+            height: 200px;
+            width: 200px;
+            gap: 10px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+            flex: 100;
+            /* animation: imgAppear linear;
+            animation-timeline: view();
+            animation-range: entry 0% cover 20%; */
+        }
+        .containerb
+        {
+            position: relative;
+            width: 100%;
+        }
+        .containerc
+        {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .catagoryBox
+        {
+            position: relative;
+            height: 220px;
+            width: 49%;
+            background-color: rgba(225, 225, 225, 0.1);
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .catBox
+        {
+            overflow-y: scroll;
+        }
+        .catBox::-webkit-scrollbar
+        {
+            display: none;
+        }
+        .catImg
+        {
+            height: 200px;
+            width: 200px;
+            object-fit: contain;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        .containerd 
+        {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            overflow-x: scroll;
+        }
+        .containerd::-webkit-scrollbar
+        {
+            display: none;
+        }
+        .brandImg
+        {
+            height: 120px;
+            width: 120px;
+            border-radius: 5px;
+        }
+        .containere
+        {
+            position: relative;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+        .myContainer
+        {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .pathBox
+        {
+            position: relative;
+            height: 100%;
+            width: 10px;
+            background-color: #666;
+        }
+        .path
+        {
+            height: 0%;
+            width: 10px;
+            background-color: royalblue;
+            transition: 1s;
+	        animation: catAppear linear;
+            animation-range: entry 10% exit 90%;
+            animation-timeline: scroll();
+            animation-duration: 5s;
+        }
+        @keyframes movecu {
+            from {
+        height: 0%;
+    }
+    to {
+        height: 100%;
+    }
+        }
+        .mainroadmapCon
+        {
+            position: relative;
+            display: flex;
+            gap: 10px;
+            width: max-content;
+        }
+        .roadmapContaienr
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .roadmapBox
+        {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .roadmapminiBox
+        {
+            background-color: rgba(225, 225, 225, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .containerf
+        {
+            position: relative;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            color: white;
+        }
+        footer 
+        {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(225, 225, 225, 0.1);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footerCon
+        {
+            display: flex;
+            align-items: start;
+            justify-content: space-around;
+            position: relative;
+            gap: 10px;
+        }
+        .footerBox
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footerLink
+        {
+            text-decoration: none;
+            color: #888;
+            transition: 1s;
+        }
+        .footerLink:hover
+        {
+            color: white;
+        }
+        @media (max-width: 900px) {
+            header 
+            {
+                overflow-x: scroll;
+            }
+            header::-webkit-scrollbar
+            {
+                display: none;
+            }
+            .boxa 
+            {
+                flex-direction: column;
+                height: max-content;
+            }
+            .mainH1
+            {
+                font-size: px;
+            }
+        }
+        @media (max-width: 865px) {
+            .containerc
+            {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: 10px;
+            }
+            .catagoryBox
+            {
+                width: 100%;
+            }
+            .myContainer
+            {
+                flex-direction: column;
+                justify-content: start;
+            }
+            .mainroadmapCon
+            {
+                width: 100%;
+            }
+            .footerCon
+            {
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width: 395px) {
+            .catagoryBox
+            {
+                width: 100%;
+                flex-direction: column;
+                height: max-content;
+            }
+            .catImg
+            {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="worlda">
+        <div class="containera">
+        <header>
+            <div class="navBox">
+                <a href="index.html" class="navBut">Home</a>
+            </div>
+            <div class="navBox">
+                <a href="aboutus.html" class="navBut">About Us</a>
+            </div>
+            <img src="picture/favicon-32x32.png" alt="" srcset="" style="object-fit: contain;">
+            <div class="navBox">
+                <a href="#products" class="navBut">Product</a>
+            </div>
+            <div class="navBox">
+                <a href="management.html" class="navBut">Management Team</a>
+            </div>
+        </header>
+        <div class="boxa">
+            <div class="miniBox">
+                <h1 class="mainH1">Welcome to Connect Cables</h1>
+                <h2>We have been in the wiring harness space for over three years.</h2>
+                <p style="font-size: 18px;" class="homeTextcontent">We have been in the wiring harness space for over three years. We started with TML Indica & CV wiring harness as a job work with TATA YAZAKI and have been appreciated by them. The credentials can be seen below.</p>        
+            </div>
+            <div class="miniBoxb">
+                <img src="picture/aboutus/imga.jpg" loading="lazy" alt="image" class="mainImg">
+                <img src="picture/aboutus/imgb.jpg" loading="lazy" alt="image" class="mainImg">
+                <img src="picture/aboutus/imgc.jpg" loading="lazy" alt="image" class="mainImg">
+                <img src="picture/aboutus/imgd.jpg" loading="lazy" alt="image" class="mainImg">
+            </div>
+        </div>
+    </div>
+    <div class="containerb">
+        <div class="boxa" style="flex-flow: column-reverse;">
+        <div class="miniBoxb">
+            <img src="picture/aboutus/imge.jpg" loading="lazy"  alt="image" class="mainImg">
+            <img src="picture/aboutus/imgf.jpg" loading="lazy" alt="image" class="mainImg">
+            <img src="picture/aboutus/imgg.jpg" loading="lazy" alt="image" class="mainImg">
+            <img src="picture/aboutus/imgh.jpg" loading="lazy" alt="image" class="mainImg">
+        </div>
+        <div class="miniBox">
+                <p style="font-size: 18px;" class="homeTextcontent">Currently we are assembling wiring harness for TATA YAZAKI NANO CAR as is clear from the photo gallery .<br><br>An ISO certified company ,we are a focused and progressive organization providing our customers with delight based on quality and timely delivery.<br><br>We have our exclusive premises in GIDC Gandhinagar, Capital of Gujarat with its excellent road and rail network, an excellent logistics support as well as adequate space for storage of items before and after assembly.<br><br>As a progressive company we target, in the future, wiring harnesses of entire cross section of vehicles both passenger cars as well as commercial vehicles .<br><br>Also wiring harnesses for white goods, medical diagnostics equipment, Electrical and electronics equipment.</p>     
+        </div>
+        </div>
+    </div>
+    <div class="containerc">
+        <div class="catagoryBox">
+            <div class="catBox">
+                <div class="navBox">
+                <a href="index.html" class="navBut" style="font-size: 22px;padding: 0px;">Pins</a>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore eveniet at natus enim impedit est sint iusto pariatur quis. Quia omnis eum voluptas. Repellat sunt earum vero! Repudiandae, optio exercitationem.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore eveniet at natus enim impedit est sint iusto pariatur quis. Quia omnis eum voluptas. Repellat sunt earum vero! Repudiandae, optio exercitationem.</p>
+            </div>
+            <div class="">
+                <img src="picture/product/page1/wirex.png" class="catImg" alt="" srcset="">
+            </div>
+        </div>
+        <div class="catagoryBox">
+            <div class="catBox">
+                <div class="navBox">
+                <a href="index.html" class="navBut" style="font-size: 22px;padding: 0px;">Battery cables</a>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore eveniet at natus enim impedit est sint iusto pariatur quis. Quia omnis eum voluptas. Repellat sunt earum vero! Repudiandae, optio exercitationem.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore eveniet at natus enim impedit est sint iusto pariatur quis. Quia omnis eum voluptas. Repellat sunt earum vero! Repudiandae, optio exercitationem.</p>
+            </div>
+            <div class="">
+                <img src="picture/product/pag2/wirei.png" class="catImg" alt="" srcset="">
+            </div>
+        </div>
+        <div class="catagoryBox">
+            <div class="catBox">
+                <div class="navBox">
+                <a href="index.html" class="navBut" style="font-size: 22px;padding: 0px;">Harness</a>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore eveniet at natus enim impedit est sint iusto pariatur quis. Quia omnis eum voluptas. Repellat sunt earum vero! Repudiandae, optio exercitationem.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore eveniet at natus enim impedit est sint iusto pariatur quis. Quia omnis eum voluptas. Repellat sunt earum vero! Repudiandae, optio exercitationem.</p>
+            </div>
+            <div class="">
+                <img src="picture/product/pag2/wirek.png" class="catImg" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+    <div class="containerd">
+        <img src="brandname/ammann.png" class="brandImg" alt="ammann" srcset="">
+        <img src="brandname/apex.png" class="brandImg" alt="apex" srcset="">
+        <img src="brandname/atul.png" class="brandImg" alt="atul" srcset="">
+        <img src="brandname/axpert.png" class="brandImg" alt="axpert" srcset="">
+        <img src="brandname/electrotheam.png" class="brandImg" alt="electrotheam" srcset="">
+        <img src="brandname/everent.png" class="brandImg" alt="everent" srcset="">
+        <img src="brandname/fcw.png" class="brandImg" alt="fcw" srcset="">
+        <img src="brandname/gm.png" class="brandImg" alt="gm" srcset="">
+        <img src="brandname/hero.png" class="brandImg" alt="hero" srcset="">
+        <img src="brandname/kapsun.png" class="brandImg" alt="kapsun" srcset="">
+        <img src="brandname/napino.png" class="brandImg" alt="napino" srcset="">
+        <img src="brandname/solora.png" class="brandImg" alt="solora" srcset="">
+        <img src="brandname/sunbird.png" class="brandImg" alt="sunbird" srcset="">
+        <img src="brandname/tata.png" class="brandImg" alt="tata" srcset="">
+        <img src="brandname/yazaki.png" class="brandImg" alt="yazaki" srcset="">
+    </div>
+    <div class="containere">
+        <h2 style="text-align: center;">The Evolution of Our Manufacturing Excellence</h2>
+        <div class="myContainer">
+            <div class="mainroadmapCon">
+            <div class="roadpathContainer">
+                <div class="pathBox">
+                    <div class="path"></div>
+                </div>
+            </div>
+            <div class="roadmapContaienr">
+            <div class="roadmapBox">
+                <p>Jan 2010</p>
+                <div class="roadmapminiBox">
+                    <h3 style="text-align: center;">Foundation Laid</h3>
+                    <p style="text-align: center;">Established our manufacturing unit in Gandhinagar, Gujarat, with a focus on quality wiring harness production.</p>
+                </div>
+            </div>
+            <div class="roadmapBox">
+                <p>Jan 2012</p>
+                <div class="roadmapminiBox">
+                    <h3 style="text-align: center;">OEM Collaborations Begin</h3>
+                    <p style="text-align: center;">Started supplying to major OEMs, including Tata Motors and General Motors, following strict compliance standards.</p>
+                </div>
+            </div>
+            <div class="roadmapBox">
+                <p>Jan 2015</p>
+                <div class="roadmapminiBox">
+                    <h3 style="text-align: center;">Infrastructure Expansion</h3>
+                    <p style="text-align: center;">Upgraded to include semi-automatic and automatic crimping, stripping, and cutting machines to scale production.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="mainroadmapCon">
+            <div class="roadpathContainer">
+                <div class="pathBox">
+                    <div class="path"></div>
+                </div>
+            </div>
+            <div class="roadmapContaienr">
+                <div class="roadmapBox">
+                    <p>Jan 2018</p>
+                    <div class="roadmapminiBox">
+                        <h3 style="text-align: center;">ISO 9001 Certification</h3>
+                        <p style="text-align: center;">Achieved ISO 9001 certification, reinforcing our commitment to quality and process-driven operations.</p>
+                    </div>
+                </div>
+                <div class="roadmapBox">
+                    <p>Jan 2022</p>
+                        <div class="roadmapminiBox">
+                        <h3 style="text-align: center;">Export Operations Launched</h3>
+                        <p style="text-align: center;">Started delivering customized solutions for international markets across multiple sectors.</p>
+                    </div>
+                </div>
+                <div class="roadmapBox">
+                    <p>Jan 2024</p>
+                    <div class="roadmapminiBox">
+                        <h3 style="text-align: center;">Smart Manufacturing Initiative</h3>
+                        <p style="text-align: center;">Began implementation of process automation and data-driven efficiency tracking across all production lines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="containerf">
+        <div style="position: relative; background-color: rgba(225, 225, 225, 0.1);border-radius: 5px;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);width: 48%;padding: 10px;">
+            <p style="text-align: center;font-size: 19px;">35+</p>
+            <p style="text-align: center;">Years Industry Experience</p>
+        </div>
+        <div style="position: relative; background-color: rgba(225, 225, 225, 0.1);border-radius: 5px;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);width: 48%;padding: 10px;">
+            <p style="text-align: center;font-size: 19px;">50+</p>
+            <p style="text-align: center;">Clients</p>
+        </div>
+        <div style="position: relative; background-color: rgba(225, 225, 225, 0.1);border-radius: 5px;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);width: 48%;padding: 10px;"">
+            <p style="text-align: center;font-size: 19px;">1,000+</p>
+            <p style="text-align: center;">Custom Cable Assemblies Delivered</p>
+        </div>
+        <div style="position: relative; background-color: rgba(225, 225, 225, 0.1);border-radius: 5px;box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);width: 48%;padding: 10px;"">
+            <p style="text-align: center;font-size: 19px;">15+</p>
+            <p style="text-align: center;">Global Supply Reach</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footerCon">
+            <div class="footerBox">
+                <h1>Connect Cables</h1>
+                <div style="display: flex;align-items: center;gap: 10px;justify-content: space-evenly;">
+                     <a href="" class="footerLink"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </div>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Company</p>
+                <a href="" class="footerLink">Home</a>
+                <a href="" class="footerLink">About us</a>
+                <a href="" class="footerLink">Product</a>
+                <a href="" class="footerLink">Management team</a>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Product</p>
+                <a href="" class="footerLink">Pins</a>
+                <a href="" class="footerLink">Harness</a>
+                <a href="" class="footerLink">Battery cables</a>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Help</p>
+                <a href="" class="footerLink">Privacy Policy</a>
+                <a href="" class="footerLink">Terms of Service</a>
+            </div>
+        </div>
+        <p style="text-align: center;">(C) Copyrites www.connectcables.co.in | info@connectcables.co.in All rights reserved.</p>
+    </footer>
+    </div>
+    <script>
+        function autoScroll() {
+            const container = document.querySelector('.containerd');
+    
+            if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+                container.scrollLeft = 0; // Reset scroll position for infinite effect
+            } else {
+                container.scrollBy({ left: 1, behavior: 'smooth' });
+            }
+
+            setTimeout(autoScroll, 20); // Adjust speed
+        }
+
+        window.onload = autoScroll;
+
+window.addEventListener("scroll", () => {
+    let paths = document.querySelectorAll(".path"); // Select all elements with class "path"
+    let scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    let scrollProgress = window.scrollY / scrollHeight;
+
+    paths.forEach((path) => {
+        path.style.height = `${scrollProgress * 100}%`; // Apply to each element
+    });
+});
+    </script>
+</body>
+</html>
