@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap">
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init({
+             publicKey: "neIh2Mt_gfywarO83",
+           });
+        })();
+     </script>
+    <title>Connect Cables</title>
+    <style>
+        * 
+        {
+            margin: 0;
+            padding: 0;
+            font-family: Barlow;
+            box-sizing: border-box;
+        }
+        body 
+        {
+            position: relative;
+        }
+        .worlda
+        {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background: linear-gradient(#356ac4,#012158,#000611,#000611,#012158);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .containera
+        {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+        }
+        header 
+        {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            color: white;
+        }
+        .navBut
+        {
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+            white-space: nowrap;
+            transition: 1s;
+            font-weight: 500;
+            font-size: 16px;
+            color: white;
+            position: relative;
+        }
+        .navBut::after
+        {
+            content: ' ';
+            position: absolute;
+            height: 2px;
+            width: 0;
+            background-color: white;
+            bottom: 0;
+            left: 2px;
+            transition: 1s;
+        }
+        .navBut:hover::after
+        {
+            width: 100%;
+        }
+        .boxa
+        {
+            position: relative;
+            height: calc(100vh - 60px);
+            padding: 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .boxb
+        {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 5px;
+        }
+        .formBixa
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        form 
+        {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .inputForm
+        {
+            position: relative;
+            width: 100%;
+            padding: 10px 10px;
+            outline: none;
+            background-color: rgba(225, 225, 225, 0.1);
+            border-radius: 5px;
+            border: 2px solid #666;
+            transition: 1s;
+            font-size: 17px;
+            color: #888;     
+        }
+        .inputForm:hover
+        {
+            border: 2px solid white;
+            color: white;
+        }
+        .inputForm:focus
+        {
+            border: 2px solid white;
+            color: white;
+        }
+        .formBix
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .descritionForm
+        {
+            position: relative;
+            padding: 10px 10px;
+            outline: none;
+            background-color: rgba(225, 225, 225, 0.1);
+            border-radius: 5px;
+            border: 2px solid #666;
+            transition: 1s;
+            font-size: 17px;
+            color: #888;
+            resize: none;
+            height: 25vh;
+            width: 100%;
+        }
+        .descritionForm:hover
+        {
+            border: 2px solid white;
+            color: white;
+        }
+        .descritionForm:focus
+        {
+            border: 2px solid white;
+            color: white;
+        }
+        .sendFormBut
+        {
+            position: relative;
+            width: 100%;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(145deg,#356ac4,#012158,#000611,#000611);
+            color: white;
+            box-shadow: 0px 0px 15px rgba(0, 0,0, 0.5);
+            cursor: pointer;
+        }
+        .conBox
+        {
+            position: relative;
+            height: 100%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            gap: 10px;
+        }
+        .contactItem
+        {
+            position: relative;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .containerb
+        {
+            position: relative;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wBox
+        {
+            background-color: rgba(225, 225, 225, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 95%;
+        }
+        .boxc
+        {
+            position: relative;
+            width: 40%;
+            color: white;
+        }
+        .mainImg
+        {
+            height: 200px;
+            width: 200px;
+            gap: 10px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+            flex: 100;
+            /* animation: imgAppear linear;
+            animation-timeline: view();
+            animation-range: entry 0% cover 20%; */
+        }
+        footer 
+        {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(225, 225, 225, 0.1);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footerCon
+        {
+            display: flex;
+            align-items: start;
+            justify-content: space-around;
+            position: relative;
+            gap: 10px;
+        }
+        .footerBox
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footerLink
+        {
+            text-decoration: none;
+            color: #888;
+            transition: 1s;
+        }
+        .footerLink:hover
+        {
+            color: white;
+        }
+        @media (max-width: 900px) {
+            header 
+            {
+                overflow-x: scroll;
+            }
+            header::-webkit-scrollbar
+            {
+                display: none;
+            }
+            .boxa
+            {
+                height: auto;
+            }
+            .boxb
+            {
+                flex-direction: column;
+            }
+            .formBixa
+            {
+                flex-wrap: wrap;
+            }
+            .conBx
+            {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+            }
+            .footerCon
+            {
+                flex-wrap: wrap;
+            }
+        }
+        @media (max-width: 450px) {
+            .wBox
+            {
+                flex-direction: column;
+            }
+            .boxc
+            {
+                width: 100%;
+            }
+            .mainImg
+            {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="worlda">
+        <div class="containera">
+        <header>
+            <div class="navBox">
+                <a href="index.html" class="navBut">Home</a>
+            </div>
+            <div class="navBox">
+                <a href="aboutus.html" class="navBut">About Us</a>
+            </div>
+            <img src="picture/favicon-32x32.png" alt="" srcset="" style="object-fit: contain;">
+            <div class="navBox">
+                <a href="product.html" class="navBut">Product</a>
+            </div>
+            <div class="navBox">
+                <a href="contactus.html" class="navBut">Contact Us</a>
+            </div>
+        </header>
+        <div class="boxa">
+            <h1>Let's <span style="color: rgb(88, 96, 172);">talk business</span>. But you first.</h1>
+            <div class="boxb">
+                <div class="forBox">
+                    <form>
+                        <div class="formBixa">
+                            <input type="text" class="inputForm" id="name"  placeholder="Name" required>
+                            <input type="number" class="inputForm" id="name"  placeholder="Phone Number" required>
+                            <input type="email" class="inputForm" id="name"  placeholder="Email" required>
+                        </div>
+                        <div class="formBix">
+                            <textarea name="" id="descrption" placeholder="Description" class="descritionForm"></textarea>
+                            <button class="sendFormBut" type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="conBox">
+                    <h2>Contact with us.</h2>
+                    <div class="conBx">
+                        <a href="https://wa.me/+911111111111" class="contactItem"><ion-icon name="logo-whatsapp"></ion-icon>+911111111111</a>
+                    <a href="mailto:example@gmail.com" class="contactItem"><ion-icon name="mail"></ion-icon>example@gmail.com"</a>
+                    <a href="tel:+911111111111" class="contactItem"><ion-icon name="call"></ion-icon>+911111111111</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="containerb">
+            <div class="wBox">
+                <div class="boxc">
+                <p style="font-size: 45px;">Our Studio</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse nihil commodi cumque neque, non dolorem consectetur odit ex porro quam.</p>
+                <div style="display: flex;align-items: center;gap: 10px;justify-content: space-evenly;padding: 10px;">
+                    <a href="" class="footerLink"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="" class="footerLink"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="" class="footerLink"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="" class="footerLink"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </div>
+                </div>
+                <img src="picture/aboutus/imga.jpg" loading="lazy"  alt="image" class="mainImg">
+            </div>
+        </div>
+        <footer>
+        <div class="footerCon">
+            <div class="footerBox">
+                <h1>Connect Cables</h1>
+                <div style="display: flex;align-items: center;gap: 10px;justify-content: space-evenly;">
+                     <a href="" class="footerLink"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </div>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Company</p>
+                <a href="index.html" class="footerLink">Home</a>
+                <a href="aboutus.html" class="footerLink">About us</a>
+                <a href="product.html" class="footerLink">Product</a>
+                <a href="contactus.html" class="footerLink">Contact Us</a>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Product</p>
+                <a href="" class="footerLink">Pins</a>
+                <a href="" class="footerLink">Harness</a>
+                <a href="" class="footerLink">Battery cables</a>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Help</p>
+                <a href="" class="footerLink">Privacy Policy</a>
+                <a href="" class="footerLink">Terms of Service</a>
+            </div>
+        </div>
+        <p style="text-align: center;">(C) Copyrites www.connectcables.co.in | info@connectcables.co.in All rights reserved.</p>
+    </footer>
+    </div>
+</body>
+</html>

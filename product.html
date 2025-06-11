@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap">
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init({
+             publicKey: "neIh2Mt_gfywarO83",
+           });
+        })();
+     </script>
+    <title>Connect Cables</title>
+    <style>
+        * 
+        {
+            margin: 0;
+            padding: 0;
+            font-family: Barlow;
+            box-sizing: border-box;
+        }
+        body 
+        {
+            position: relative;
+        }
+        .worlda
+        {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background: #000e26;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .containera
+        {
+            position: relative;
+            /* height: 100vh; */
+            width: 100%;
+        }
+        header 
+        {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+            color: white;
+        }
+        .navBut
+        {
+            padding: 5px;
+            text-decoration: none;
+            color: black;
+            white-space: nowrap;
+            transition: 1s;
+            font-weight: 500;
+            font-size: 16px;
+            color: white;
+            position: relative;
+        }
+        .navBut::after
+        {
+            content: ' ';
+            position: absolute;
+            height: 2px;
+            width: 0;
+            background-color: white;
+            bottom: 0;
+            left: 2px;
+            transition: 1s;
+        }
+        .navBut:hover::after
+        {
+            width: 100%;
+        }
+        .containerb
+        {
+            position: relative;
+        }
+        .pinContainer
+        {
+            position: relative;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .imgBox
+        {
+            position: relative;
+            padding: 10px;
+            height: 413px;
+            width: 250px;
+            border-radius: 5px;
+            background-color: white;
+        }
+        .img
+        {
+            height: 200px;
+            width: 200px;
+            gap: 10px;
+            object-fit: contain;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 1s;
+            flex: 100;
+        }
+        .dec
+        {
+            height: 150px;
+            overflow-y: scroll;
+        }
+        .dec::-webkit-scrollbar
+        {
+            display: none;
+        }
+        footer 
+        {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(225, 225, 225, 0.1);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .footerCon
+        {
+            display: flex;
+            align-items: start;
+            justify-content: space-around;
+            position: relative;
+            gap: 10px;
+        }
+        .footerBox
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .footerLink
+        {
+            text-decoration: none;
+            color: #888;
+            transition: 1s;
+        }
+        .footerLink:hover
+        {
+            color: white;
+        }
+        @media (max-width: 900px) {
+            header 
+            {
+                overflow-x: scroll;
+            }
+            header::-webkit-scrollbar
+            {
+                display: none;
+            }
+            .footerCon
+            {
+                flex-wrap: wrap;
+            }
+            .imgBox
+            {
+                width: 240px;
+            }
+        }
+        @media (max-width: 400px) {
+            .imgBox
+            {
+                width: 100%;
+                height: max-content;
+            }
+            .dec
+            {
+                height: max-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="worlda">
+        <div class="containera">
+        <header>
+            <div class="navBox">
+                <a href="index.html" class="navBut">Home</a>
+            </div>
+            <div class="navBox">
+                <a href="aboutus.html" class="navBut">About Us</a>
+            </div>
+            <img src="picture/favicon-32x32.png" alt="" srcset="" style="object-fit: contain;">
+            <div class="navBox">
+                <a href="#products" class="navBut">Product</a>
+            </div>
+            <div class="navBox">
+                <a href="contactus.html" class="navBut">Contact Us</a>
+            </div>
+        </header>
+        </div>
+        <div class="containerb">
+            <h2 style="color: white;margin-left: 10px;">Pins</h2>
+            <div class="pinContainer">
+                <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wiref.png" alt="wa.jpg" srcset="" loading="lazy">
+                        <div class="box">
+                            <p style="font-weight: 600;">TWO PIN CONNECTOR</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wiree.png" alt="wa.jpg" srcset="" loading="lazy">
+                        <div class="box">
+                            <p style="font-weight: 600;">CPU CONNECTOR</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wirew.png" alt="PIG TAIL HARNESS" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">CPU CONNECTOR</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wirex.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">CONNECTOR</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wirey.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">CPU CONNECTOR</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page4/wirev.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">CABLE HARNESS WITHOUT COVER</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="containerb">
+            <h2 style="color: white;margin-left: 10px;">Battery cables</h2>
+            <div class="pinContainer">
+                <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wirec.png" alt="wa.jpg" srcset="" loading="lazy">
+                        <div class="box">
+                            <p style="font-weight: 600;">Battery Cable</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wireb.png" alt="wa.jpg" srcset="" loading="lazy">
+                        <div class="box">
+                            <p style="font-weight: 600;">70sqmm LINK CABLE</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wireh.png" alt="PIG TAIL HARNESS" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">DUAL BATTERY CABLE</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/pag2/wirej.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">DUAL BATTERY CABLE (+,-)</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wired.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">4-CORE SHIELDED</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page4/wireq.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">70sqmm BATTERY CABLE WITH COT (+,-)</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/pag2/wirei.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">95sqmm BATTERY CABLE</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page4/wiret.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">BATTERY CABLE WITH FUSE AND CONNECTOR</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page4/wireu.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">16sqmm CABLE (+,-)</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page4/wirer.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">50sqmm CABLE (+,-)</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page3/wirem.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">UNINYVIN BATTERY LINK</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page3/wiren.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">UNINYVIN LINK</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page3/wiren.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">UNINYVIN BATTERY NEGATIVE</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page1/wireg.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">LINK BATTERY CABLE</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page4/wirev.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">CABLE HARNESS WITHOUT COVER</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+            </div>
+            </div>
+            <div class="containerb">
+            <h2 style="color: white;margin-left: 10px;">Harness</h2>
+            <div class="pinContainer">
+                <div class="imgBox">
+                        <img class="img" src="picture/product/pag2/wirei.png" alt="wa.jpg" srcset="" loading="lazy">
+                        <div class="box">
+                            <p style="font-weight: 600;">AIC HARNESS</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/pag2/wirek.png" alt="wa.jpg" srcset="" loading="lazy">
+                        <div class="box">
+                            <p style="font-weight: 600;">CABLE HARNESS WITH CONNECTOR</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page3/wireo.png" alt="PIG TAIL HARNESS" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">PIG TAIL HARNESS</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/pag2/wirei.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">RLC HARDENSS AND CONNECTOR</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page4/wires.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">CABLE HARNESS WITHOUT COVER</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img class="img" src="picture/product/page4/wirev.png" alt="wa.jpg" srcset="">
+                        <div class="box">
+                            <p style="font-weight: 600;">CABLE HARNESS WITHOUT COVER</p>
+                            <p class="dec">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae tenetur vel cum libero nostrum provident ratione molestiae inventore ipsum, exercitationem quas delectus atque asperiores debitis quae assumenda praesentium dignissimos, eos expedita vitae!</p>
+                        </div>
+                    </div>
+            </div>
+        <footer>
+        <div class="footerCon">
+            <div class="footerBox">
+                <h1>Connect Cables</h1>
+                <div style="display: flex;align-items: center;gap: 10px;justify-content: space-evenly;">
+                     <a href="" class="footerLink"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="" class="footerLink"><ion-icon name="logo-linkedin"></ion-icon></a>
+                </div>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Company</p>
+                <a href="" class="footerLink">Home</a>
+                <a href="aboutus.html" class="footerLink">About us</a>
+                <a href="" class="footerLink">Product</a>
+                <a href="contactus.html" class="footerLink">Contact Us</a>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Product</p>
+                <a href="" class="footerLink">Pins</a>
+                <a href="" class="footerLink">Harness</a>
+                <a href="" class="footerLink">Battery cables</a>
+            </div>
+            <div class="footerBox">
+                <p style="font-weight: 600;font-size: 18px;">Help</p>
+                <a href="" class="footerLink">Privacy Policy</a>
+                <a href="" class="footerLink">Terms of Service</a>
+            </div>
+        </div>
+        <p style="text-align: center;">(C) Copyrites www.connectcables.co.in | info@connectcables.co.in All rights reserved.</p>
+    </footer>
+    </div>
+</body>
+</html>
